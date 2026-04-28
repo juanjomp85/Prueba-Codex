@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keep Mini | Tareas y Notas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>🗒️ Keep Mini</h1>
+      <p>Organiza tus tareas y notas rápidas</p>
+    </header>
+
+    <main class="layout">
+      <section class="composer" aria-label="Crear elemento">
+        <h2>Nueva tarjeta</h2>
+
+        <form id="card-form">
+          <label>
+            Tipo
+            <select id="type" name="type">
+              <option value="note">Nota</option>
+              <option value="task">Tarea</option>
+            </select>
+          </label>
+
+          <label>
+            Título
+            <input id="title" name="title" type="text" maxlength="80" placeholder="Ej: Ideas para el proyecto" required />
+          </label>
+
+          <label>
+            Contenido
+            <textarea id="content" name="content" maxlength="400" rows="4" placeholder="Escribe algo breve..."></textarea>
+          </label>
+
+          <label>
+            Color
+            <input id="color" name="color" type="color" value="#fff8b8" />
+          </label>
+
+          <button type="submit">Guardar</button>
+        </form>
+      </section>
+
+      <section class="board-area" aria-label="Tarjetas guardadas">
+        <div class="board-controls">
+          <input id="search" type="search" placeholder="Buscar por título o contenido..." />
+          <button id="clear-completed" type="button">Limpiar tareas completadas</button>
+        </div>
+
+        <section id="board" class="board"></section>
+      </section>
+    </main>
+
+    <template id="card-template">
+      <article class="card">
+        <div class="card-header">
+          <h3 class="card-title"></h3>
+          <button class="delete-btn" type="button" aria-label="Eliminar">✕</button>
+        </div>
+        <p class="card-content"></p>
+        <div class="task-row" hidden>
+          <label>
+            <input class="done-checkbox" type="checkbox" />
+            Marcar como completada
+          </label>
+        </div>
+        <small class="timestamp"></small>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
