@@ -1,0 +1,201 @@
+:root {
+  --bg: #f1f3f4;
+  --paper: #ffffff;
+  --text: #202124;
+  --muted: #5f6368;
+  --accent: #1a73e8;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem 1.5rem;
+  z-index: 1;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.topbar p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(250px, 320px) 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.composer,
+.board-controls,
+.card {
+  background: var(--paper);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.composer {
+  padding: 1rem;
+  align-self: start;
+}
+
+.composer h2 {
+  margin-top: 0;
+}
+
+#card-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+label {
+  font-size: 0.9rem;
+  color: var(--muted);
+  display: grid;
+  gap: 0.35rem;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+input,
+textarea,
+select {
+  border: 1px solid #d7d7d7;
+  border-radius: 8px;
+  padding: 0.6rem 0.65rem;
+  background: white;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(0.95);
+}
+
+.board-area {
+  min-width: 0;
+}
+
+.board-controls {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+#search {
+  flex: 1;
+}
+
+#clear-completed {
+  background: #d93025;
+}
+
+.board {
+  columns: 280px;
+  column-gap: 1rem;
+}
+
+.card {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  padding: 0.85rem;
+  transition: transform 120ms ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.card-content {
+  margin: 0.6rem 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.delete-btn {
+  background: transparent;
+  color: #444;
+  padding: 0 0.35rem;
+  font-size: 1rem;
+}
+
+.task-row {
+  margin: 0.4rem 0;
+}
+
+.task-row label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text);
+}
+
+.card.done .card-title,
+.card.done .card-content {
+  text-decoration: line-through;
+  opacity: 0.65;
+}
+
+.timestamp {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.empty-state {
+  color: var(--muted);
+  text-align: center;
+  margin: 2rem 0;
+}
+
+@media (max-width: 820px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .board-controls {
+    flex-direction: column;
+  }
+}
