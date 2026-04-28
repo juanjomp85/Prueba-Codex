@@ -1,6 +1,9 @@
 # Keep Mini (Tareas + Notas) con MySQL
 
 Aplicación web estilo **Google Keep** para crear y administrar tarjetas de notas y tareas con persistencia en **MySQL**.
+# Keep Mini (Tareas + Notas)
+
+Aplicación web estática tipo **Google Keep** para crear y administrar tarjetas de notas y tareas.
 
 ## Funcionalidades
 
@@ -54,3 +57,8 @@ npm start
 - `PATCH /api/cards/:id` (actualiza `done`)
 - `DELETE /api/cards/:id`
 - `DELETE /api/cards` (limpia tareas completadas)
+- Persistencia local con `localStorage`.
+
+## Ejecutar
+
+Solo abre `index.html` en tu navegador.
